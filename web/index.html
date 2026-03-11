@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VGOil & Gasline - Doorstep Diesel Delivery</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-content">
+      <h1>VGOil & Gasline</h1>
+      <p>Order diesel to your doorstep with live fare estimation.</p>
+      <a href="#order" class="cta">Book Delivery</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="rules">
+      <h2>Delivery Rules</h2>
+      <ul>
+        <li><strong>Minimum order quantity:</strong> 100 liters</li>
+        <li><strong>Free delivery radius:</strong> 0–5 km</li>
+        <li><strong>Beyond 5 km:</strong> ₹100 per km</li>
+      </ul>
+    </section>
+
+    <section id="order" class="order-card">
+      <h2>Place Your Order</h2>
+      <form id="orderForm">
+        <label>
+          Customer Name
+          <input type="text" id="name" required />
+        </label>
+
+        <label>
+          Phone Number
+          <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="10-digit mobile number" />
+        </label>
+
+        <label>
+          Delivery Address
+          <textarea id="address" rows="3" required></textarea>
+        </label>
+
+        <label>
+          Diesel Quantity (liters)
+          <input type="number" id="quantity" min="100" step="1" required />
+        </label>
+
+        <label>
+          Distance from depot (km)
+          <input type="number" id="distance" min="0" step="0.1" required />
+        </label>
+
+        <button type="submit">Calculate Delivery Cost</button>
+      </form>
+
+      <div id="result" class="result hidden"></div>
+    </section>
+
+    <section class="map-card">
+      <h2>Google Maps Integration</h2>
+      <p>Replace <code>YOUR_GOOGLE_MAPS_API_KEY</code> in <code>web/app.js</code> and use your registered depot coordinates.</p>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 VGOil & Gasline. Diesel delivered safely and on time.</p>
+  </footer>
+
+  <script src="app.js"></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap"></script>
+</body>
+</html>
